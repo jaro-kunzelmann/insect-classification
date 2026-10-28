@@ -78,6 +78,8 @@ python src/data_prep/resample_audio.py \
 
 The resulting dataset (`data/aggregation/resampled_files/meta/annotations_resampled.csv`) has 24,950 recordings of 451 classes. The original recordings in `data/InsectSet/` are no longer needed for training and evaluation and can be deleted.
 
+For transparency, `IS459_files_used.csv` (also as `IS459_files_used.xlsx`) in the repository root lists all InsectSet459 recordings used to produce the results and models, along with their split (`train`, `val`, `test`).
+
 ## 3. Train a model
 
 Training is run with `src/run_experiment.py`, configured by three files:
