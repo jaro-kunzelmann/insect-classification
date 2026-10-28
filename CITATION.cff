@@ -9,7 +9,7 @@ authors:
   - family-names: Kunzelmann
     given-names: Jaromir
     affiliation: "ZHAW Zurich University of Applied Sciences"
-repository-code: "https://github.com/jaro-kunzelmann/insect-sounds"
+repository-code: "https://github.com/jaro-kunzelmann/insect-classification"
 license: MIT
 version: 0.1.0
 
