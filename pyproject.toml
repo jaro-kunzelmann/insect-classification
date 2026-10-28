@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+
+[project]
+name = "insect_sounds"
+version = "0.1.0"
+description = "classification of insect sounds"
+license = {text = "MIT"}
+authors = [
+    {name = "Tobias J. PETER", email = "tobias.peter@zhaw.ch"},
+    {name = "Jaromir KUNZELMANN", email = "jaromir.kunzelmann@agroscope.admin.ch"}
+]
+
+[tool.black]
+line-length = 80

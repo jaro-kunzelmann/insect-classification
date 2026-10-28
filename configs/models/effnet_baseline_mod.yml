@@ -1,0 +1,50 @@
+global:
+  seed: 42
+
+wandb:
+  project: OrthopteraPaper
+  tags: [Baseline_modified, no_weighting, adamw]
+
+audio_csv_file:
+  name: ./data/aggregation/resampled_files/meta/annotations_resampled.csv
+  dict: ./data/aggregation/resampled_files/meta/label_mappings_resampled.yml
+
+training:
+  path_to_save_model: ./models/baseline_model.pth # a suffix is added if the file exists, override with --model_path
+  num_epochs: 20
+  batch_size: 32
+  learning_rate: 0.0017
+  optimizer: adamw  # adam, adamw, sgd, nadam, rmsprop, adagrad
+  weight_decay: !!float 10e-5
+
+  # Loss configuration
+  loss_type: cross_entropy
+  focal_gamma: none
+  label_smoothing: 0.1
+
+  # Class imbalance handling (choose ONE approach)
+  weighted_sampler_method: none       # none, inverse_frequency, inverse_sqrt_frequency
+  weighted_loss_method: none  # none, inverse_frequency, inverse_sqrt_frequency, effective_num_samples, InsectEffNet
+  effective_num_beta: none 
+
+  # Regularization
+  gradient_clip_norm: none       # Set to null or omit for no clipping
+  mixup_alpha: none              # Data augmentation via mixup
+
+  lr_scheduler:
+    scheduler: CosineAnnealingLR    
+    eta_min: !!float 10e-9
+    T_max: 20
+
+  dataset:
+    class: FixedCropDataset
+    crop_length_s: 5
+    min_crop_duration_s: 1.25 
+    overlap_s: 2.5
+
+model:
+  model_source: timm
+  model_name: tf_efficientnetv2_s.in21k
+  # InsectEffNet uses the default = no dropout
+  drop_rate: none
+  drop_path_rate: none

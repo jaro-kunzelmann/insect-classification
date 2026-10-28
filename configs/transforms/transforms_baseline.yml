@@ -1,0 +1,57 @@
+order:
+        train:
+            - RandomPad
+            - ApplyImpulseResponse
+            - RandomColoredNoise
+            - MelSpectrogram
+            - AmplitudeToDB
+        valid:
+            - Pad
+            - MelSpectrogram
+            - AmplitudeToDB
+        test:
+            - Pad
+            - MelSpectrogram
+            - AmplitudeToDB
+
+
+transforms:
+        AmplitudeToDB:
+            stype: power
+            top_db: 80
+        ApplyImpulseResponse:
+            compensate_for_propagation_delay: true
+            ir_paths:  ./data/irs/openair/*/mono/*.wav
+            mode: per_example
+            output_type: dict
+            p: 0.15
+            p_mode: per_example
+            sample_rate: 48000
+        Pad:
+            sample_rate: 48000
+            target_length: 5
+            target_length_unit: seconds
+        RandomColoredNoise:
+            colors:
+                - NoiseInjection
+                - white
+                - pink
+            max_noise_injection: 0.04
+            max_snr_in_db: 20
+            min_snr_in_db: 5
+            p: 0.15
+            sample_rate: 48000
+        RandomPad:
+            sample_rate: 48000
+            target_length: 5
+            target_length_unit: seconds
+        MelSpectrogram:
+            sample_rate: 48000
+            n_mels: 128
+            f_max: 22000
+            f_min: 400
+            hop_length: 1024
+            n_fft: 2048
+            win_length: 2048
+            normalized: true
+            power: 2

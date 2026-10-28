@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Acoustic Classification of Insects"
+type: software
+authors:
+  - family-names: Peter
+    given-names: Tobias J.
+    affiliation: "ZHAW Zurich University of Applied Sciences"
+  - family-names: Kunzelmann
+    given-names: Jaromir
+    affiliation: "ZHAW Zurich University of Applied Sciences"
+repository-code: "https://github.com/jaro-kunzelmann/insect-sounds"
+license: MIT
+version: 0.1.0
+
+# TODO: once the paper is published, uncomment and fill in the block below.
+# GitHub's "Cite this repository" button will then show the paper instead of
+# the software entry above.
+#
+# preferred-citation:
+#   type: article
+#   title: "<paper title>"
+#   authors:
+#     - family-names: Kunzelmann
+#       given-names: Jaromir
+#     - family-names: Peter
+#       given-names: Tobias J.
+#   journal: "<journal>"
+#   year: <year>
+#   volume: <volume>
+#   start: <first page or article number>
+#   doi: "<doi>"

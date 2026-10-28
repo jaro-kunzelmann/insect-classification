@@ -1,0 +1,6 @@
+min_sample_rate: 44100
+
+min_files_per_subset:
+  train: 3
+  validation: 2
+  test: 1
