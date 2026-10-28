@@ -21,10 +21,10 @@ git clone https://github.com/jaro-kunzelmann/insect-classification.git
 cd insect-classification
 ```
 
-Install [micromamba](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html) (or use `mamba`/`conda`), then create and activate the environment and install the code of this repository:
+Install [micromamba](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html) (or use `mamba`/`conda`), then create and activate the environment and install the code of this repository. The environment uses PyTorch 2.5.1 with CUDA 12.4 from the `pytorch` channel, which needs flexible channel priority:
 
 ```bash
-micromamba env create -f conda_environment.yml
+micromamba env create -f conda_environment.yml --channel-priority flexible
 micromamba activate insects
 pip install -e .
 ```

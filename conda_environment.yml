@@ -1,25 +1,26 @@
+# Create with: micromamba env create -f conda_environment.yml --channel-priority flexible
+# torch is pinned to 2.5.1 (CUDA 12.4): torchaudio >= 2.9 removed torchaudio.info, used by
+# the data preparation and by torch-audiomentations.
 name: insects
 channels:
-  - nvidia
-  - pytorch
   - conda-forge
+  - pytorch
+  - nvidia
 dependencies:
-  - python
-  - pytorch::pytorch
-  - pytorch::torchvision
-  - pytorch::torchaudio
+  - python=3.12
+  - pytorch::pytorch=2.5.1
+  - pytorch::torchvision=0.20.1
+  - pytorch::torchaudio=2.5.1
+  - pytorch::pytorch-cuda=12.4
+  - numpy<2
+  - ffmpeg<7
   - torchinfo
-  - numpy
   - scipy
   - pandas
   - scikit-learn
   - scikit-image
   - ipykernel
-  - ipython
-  - ipython_genutils
-  - jupyter
   - jupyterlab
-  - nb_conda_kernels
   - seaborn
   - matplotlib
   - pip
@@ -31,8 +32,7 @@ dependencies:
   - librosa
   - black
   - coloredlogs
-  - conda-forge::transformers
-  - ffmpeg<7
+  - transformers
   - upsetplot
   - git-lfs
   - more-itertools
@@ -44,6 +44,6 @@ dependencies:
   - tabulate
   - pip:
     - torchlibrosa
-    - torch-audiomentations
+    - torch-audiomentations==0.12.0
     - python-stretch
     - nnaudio
