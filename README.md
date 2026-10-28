@@ -17,8 +17,8 @@ Code to reproduce the data preparation, training and evaluation of the insect so
 ### Clone the repository and create the environment
 
 ```bash
-git clone https://github.com/jaro-kunzelmann/insect-sounds.git
-cd insect-sounds
+git clone https://github.com/jaro-kunzelmann/insect-classification.git
+cd insect-classification
 ```
 
 Install [micromamba](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html) (or use `mamba`/`conda`), then create and activate the environment and install the code of this repository:
@@ -28,8 +28,6 @@ micromamba env create -f conda_environment.yml
 micromamba activate insects
 pip install -e .
 ```
-
-`pip install -e .` is required: the scripts in `src/data_prep/` import the modules in `src/` and fail with `ModuleNotFoundError: No module named 'utils'` without it.
 
 ### Download the trained models
 
@@ -98,7 +96,7 @@ Train for one epoch on a random 10% of the data to check that everything is set 
 
 ```bash
 python -u src/run_experiment.py \
-    --config configs/models/effnet_baseline_mod_sweep.yml \
+    --config configs/models/effnet_baseline.yml \
     --trsf_config configs/transforms/mel64_specaug0.yml \
     --dataset-config-path configs/dataset_filtering/initial_training.yml \
     --weighted_loss inverse_sqrt_frequency --gradient_clip none --mixup_alpha 0.25 \
@@ -112,7 +110,7 @@ Best model (EfficientNetV2-S, 64 mel bins, mixup, class-weighted loss):
 
 ```bash
 python -u src/run_experiment.py \
-    --config configs/models/effnet_baseline_mod_sweep.yml \
+    --config configs/models/effnet_best.yml \
     --trsf_config configs/transforms/mel64_specaug0.yml \
     --dataset-config-path configs/dataset_filtering/initial_training.yml \
     --weighted_loss inverse_sqrt_frequency --gradient_clip none --mixup_alpha 0.25 \
@@ -123,7 +121,7 @@ Baseline model (EfficientNetV2-S, 128 mel bins, no mixup, no class weighting):
 
 ```bash
 python -u src/run_experiment.py \
-    --config configs/models/effnet_baseline_mod.yml \
+    --config configs/models/effnet_baseline.yml \
     --trsf_config configs/transforms/transforms_baseline.yml \
     --dataset-config-path configs/dataset_filtering/initial_training.yml \
     -wo 8 --deterministic_warn_only
@@ -164,7 +162,7 @@ Best model:
 
 ```bash
 python -u src/run_experiment.py \
-    --config configs/models/effnet_baseline_mod_sweep.yml \
+    --config configs/models/effnet_best.yml \
     --trsf_config configs/transforms/mel64_specaug0.yml \
     --dataset-config-path configs/dataset_filtering/initial_training.yml \
     --eval_model_path models/best_model.pth \
@@ -175,7 +173,7 @@ Baseline model:
 
 ```bash
 python -u src/run_experiment.py \
-    --config configs/models/effnet_baseline_mod.yml \
+    --config configs/models/effnet_baseline.yml \
     --trsf_config configs/transforms/transforms_baseline.yml \
     --dataset-config-path configs/dataset_filtering/initial_training.yml \
     --eval_model_path models/baseline_model.pth \
