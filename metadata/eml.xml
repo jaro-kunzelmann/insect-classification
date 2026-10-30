@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<eml:eml xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0" xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packageId="[ZENODO-DOI]" system="https://doi.org" xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0 https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd">
+<eml:eml xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0" xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packageId="insect-classification-metadata-v1.0.0" system="https://github.com/jaro-kunzelmann/insect-classification" xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0 https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd">
   <dataset>
     <title>Input data definition, species table and run configurations for: Optimizing Spectrogram Front-Ends and Training Strategies for Deep Learning-Based Acoustic Insect Classification</title>
     <creator>

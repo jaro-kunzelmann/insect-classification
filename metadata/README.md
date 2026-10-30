@@ -115,7 +115,10 @@ If you use these files, please cite the paper and the dataset:
   Automatic Acoustic Identification of Insects (Orthoptera and Cicadidae)*,
   version 1.0. Zenodo. https://doi.org/10.5281/zenodo.15675220
 
-This release is archived at [ZENODO-DOI].
+This folder is part of release v1.0.0 of the code repository
+(https://github.com/jaro-kunzelmann/insect-classification), which is
+archived on Zenodo. The DOI of the archived release is given on the
+repository's main page.
 
 ## Licence
 
