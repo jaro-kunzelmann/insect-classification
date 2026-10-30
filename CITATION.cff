@@ -12,8 +12,11 @@ authors:
     affiliation: "Agroscope"
     orcid: "https://orcid.org/0009-0004-2173-5177"
 repository-code: "https://github.com/jaro-kunzelmann/insect-classification"
-license: MIT
-version: 0.1.0
+license:
+  - MIT
+  - CC-BY-4.0
+  - CC-BY-NC-SA-4.0
+version: 1.0.0
 
 # TODO: once the paper is published, uncomment and fill in the block below.
 # GitHub's "Cite this repository" button will then show the paper instead of

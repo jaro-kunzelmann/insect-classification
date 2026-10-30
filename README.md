@@ -78,7 +78,7 @@ python src/data_prep/resample_audio.py \
 
 The resulting dataset (`data/aggregation/resampled_files/meta/annotations_resampled.csv`) has 24,950 recordings of 451 classes. The original recordings in `data/InsectSet/` are no longer needed for training and evaluation and can be deleted.
 
-For transparency, `IS459_files_used.csv` (also as `IS459_files_used.xlsx`) in the repository root lists all InsectSet459 recordings used to produce the results and models, along with their split (`train`, `val`, `test`).
+For transparency, [`metadata/files_used.csv`](metadata/files_used.csv) lists all InsectSet459 recordings used to produce the results and models, along with their split (`train`, `validation`, `test`). See [metadata/README.md](metadata/README.md) for the columns.
 
 ## 3. Train a model
 
@@ -143,7 +143,7 @@ Each run writes to `results/<model name>/` (a numeric suffix is added if the fol
 
 ### Reproducibility
 
-The random seed is set in the config (`global.seed`) or with `--seed`, and deterministic algorithms are enabled. Some operations have no deterministic CUDA implementation, so the commands above use `--deterministic_warn_only`. This lets the run finish, but two runs with the same seed may differ slightly.
+The random seed is set in the config (`global.seed`) or with `--seed`, and deterministic algorithms are enabled. Some operations have no deterministic CUDA implementation (`--deterministic_warn_only`), so results can vary slightly between runs with the same seed.
 
 ### Logging to Weights & Biases
 
