@@ -192,6 +192,7 @@ configs/
     models/              model & training configs
     transforms/          augmentation & spectrogram configs
 data/                    datasets (downloaded and generated, see data/README.md)
+metadata/                file lists, species table, run configurations (see metadata/README.md)
 models/                  trained models (Git LFS)
 scripts/                 download scripts
 src/
@@ -212,7 +213,13 @@ src/
 
 ## License
 
-The code in this repository is released under the [MIT License](LICENSE). This does not cover the datasets used, which remain under the terms of their original sources.
+| Part | License |
+|---|---|
+| Code and configurations (`src/`, `scripts/`, `configs/`) | [MIT](LICENSE) |
+| Metadata (`metadata/`) | [CC BY 4.0](metadata/LICENSE) |
+| Model weights (`models/`) | [CC BY-NC-SA 4.0](models/LICENSE) |
+
+The model weights are released for non-commercial use only because about 68% of the training recordings carry a non-commercial license. The audio recordings are not part of this repository. They remain under the licenses of their original sources, which are listed for each recording in [`metadata/files_used.csv`](metadata/files_used.csv).
 
 ## Citation
 
