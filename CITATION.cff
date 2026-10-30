@@ -6,9 +6,11 @@ authors:
   - family-names: Peter
     given-names: Tobias J.
     affiliation: "ZHAW Zurich University of Applied Sciences"
+    orcid: "https://orcid.org/0009-0008-2435-642X"
   - family-names: Kunzelmann
     given-names: Jaromir
-    affiliation: "ZHAW Zurich University of Applied Sciences"
+    affiliation: "Agroscope"
+    orcid: "https://orcid.org/0009-0004-2173-5177"
 repository-code: "https://github.com/jaro-kunzelmann/insect-classification"
 license: MIT
 version: 0.1.0
@@ -21,10 +23,10 @@ version: 0.1.0
 #   type: article
 #   title: "<paper title>"
 #   authors:
-#     - family-names: Kunzelmann
-#       given-names: Jaromir
 #     - family-names: Peter
 #       given-names: Tobias J.
+#     - family-names: Kunzelmann
+#       given-names: Jaromir
 #   journal: "<journal>"
 #   year: <year>
 #   volume: <volume>

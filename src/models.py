@@ -915,7 +915,6 @@ def load_timm_model(
             drop_path_rate,
         )
 
-    # TODO move this to initialize_model to allow this for other model sources as well
     # this has to be done _after_ loading a checkpoint
     if freeze_base:
         # First, freeze everything

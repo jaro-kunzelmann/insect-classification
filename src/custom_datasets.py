@@ -442,7 +442,7 @@ class RandomPad(nn.Module):
         if waveform.shape[-1] < self.target_samples:
             # If the waveform is shorter than the target length, pad it
             pad_total = self.target_samples - waveform.shape[-1]
-            # TODO determinism (grab seed)
+            # uses the global `random`, seeded per DataLoader worker (seed_worker)
             pad_left = random.randint(0, pad_total)
             pad_right = pad_total - pad_left
             padding_left = torch.zeros(
@@ -541,9 +541,7 @@ class ResizeSpectrogram(nn.Module):
                               else they are aligned by the center of their cells. Default is False.
         """
         super().__init__()
-        self.size = tuple(
-            size
-        )  # evil hack to bypass yaml not understanding tuples
+        self.size = tuple(size)  # YAML has no tuples, so size arrives as a list
         self.mode = mode
         self.align_corners = align_corners
 
@@ -589,7 +587,7 @@ class ResizeSpectrogram(nn.Module):
         return resized_spectrograms
 
 
-# TODO replace with torchaudio implementation once it is released
+# Local variant, because the upstream version is not released yet
 # (https://github.com/iver56/torch-audiomentations/tree/main?tab=readme-ov-file#unreleased)
 class RandomCrop(nn.Module):
     """Crop the audio to predefined length in max_length.
@@ -1008,7 +1006,6 @@ class FixedCropDataset(Dataset):
         return sample
 
     def get_file_df(self):
-        # TODO also get start & crop_samples into the df
         return self.df_files.iloc[[file_idx for file_idx, *_ in self.entries]]
 
 
@@ -1082,7 +1079,6 @@ def resolve_ir_paths(config):
         # unsorted list therefore picks different IRs on different filesystems at the
         # same seed.
         res_fpaths = sorted(glob(fpaths, recursive=True))
-        # TODO add this to documentation
         assert (
             len(res_fpaths) > 0
         ), f"No impulse response files found at {fpaths}"

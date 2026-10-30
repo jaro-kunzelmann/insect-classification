@@ -292,8 +292,7 @@ def collect_dataset_annotations(
         vc = df_subset_na["dataset_name"].value_counts()
         logging.warning(vc)
 
-    # TODO handle other common file endings too
-    # extract file extensions
+    # extract file extensions (only .wav and .mp3 are supported)
     unique_extensions = (
         df_combined["file_name"]
         .apply(lambda x: os.path.splitext(x)[1].lower())
@@ -311,8 +310,8 @@ def collect_dataset_annotations(
 
     # check dirs and files exist
     if debug:
-        # TODO would have to store "directory" for every dataset for this to be
-        # effect. Now, we get NAs here and the check is half-baked...
+        # note: "directory" is not stored for every dataset, so NAs are dropped
+        # here and only the datasets that have one are checked.
         dirs = list(df_combined["directory"].dropna().unique())
         assert all(
             [os.path.isdir(d) for d in dirs]

@@ -2,7 +2,7 @@ global:
   seed: 42
 
 wandb:
-  project: OrthopteraPaper
+  project: insect-classification
   tags: [Baseline_modified, adamw, sweep]
 
 audio_csv_file:

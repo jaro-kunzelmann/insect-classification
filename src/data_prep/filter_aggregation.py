@@ -2,7 +2,6 @@
 Apply user-defined species name handling ("species_name_mapping.{csv | xlsx}")
 to taxonomically unclear species names in initial dataset aggregation
 (init_aggregated_annotations.csv).
-- TODO make analyze_freq an optional step beforehand to find out which classes to kick out.
 """
 
 import os

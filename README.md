@@ -157,8 +157,8 @@ Two trained models are provided in `models/`:
 
 | Model | Checkpoint | Config | Transform config |
 |---|---|---|---|
-| Best model | `models/best_model.pth` | `effnet_baseline_mod_sweep.yml` | `mel64_specaug0.yml` |
-| Baseline model | `models/baseline_model.pth` | `effnet_baseline_mod.yml` | `transforms_baseline.yml` |
+| Best model | `models/best_model.pth` | `effnet_best.yml` | `mel64_specaug0.yml` |
+| Baseline model | `models/baseline_model.pth` | `effnet_baseline.yml` | `transforms_baseline.yml` |
 
 Best model:
 

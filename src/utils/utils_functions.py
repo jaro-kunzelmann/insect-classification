@@ -562,7 +562,7 @@ def save_cm_table(
     # # predicted labels
     # pred_labels = pred_probs.argmax(dim=1)
     # create report: classwise precision, recall, f1, support
-    # TODO IS459 paper uses zero_division=1
+    # note: the IS459 paper uses zero_division=1
     report = classification_report(
         true_labels,
         pred_labels,
@@ -788,8 +788,8 @@ def save_results(
                 f"Aggregation {aggregation_name!r} did not return paths."
             )
 
-        # TODO this only preserves path, true label, and prediction for file-level results.
-        # To retain other file-level metadata from df, build the aggregated dataframe by matching paths.
+        # note: this only preserves path, true label, and prediction for file-level results.
+        # Other file-level metadata from df is not retained.
         if len(df) == len(labels_pred):
             df_predictions = df.copy()
         else:
@@ -1454,7 +1454,6 @@ def apply_user_dataset_config(df, dataset_config):
     else:
         raise UserWarning("Specify which datasets to use in the filter_config.")
 
-    # TODO improve reporting here
     # apply remapping for dataset and subset
     if "mappings" in dataset_config.keys():
         for dataset_name, mapping in dataset_config["mappings"].items():

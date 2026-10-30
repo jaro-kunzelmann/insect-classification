@@ -155,7 +155,6 @@ def update_config(config, args, sweep_params, device):
     # ============================================================
     # Sweep params override anything else
     # ============================================================
-    # TODO a better pattern for this...
     if sweep_params:
         if "learning_rate" in sweep_params:
             config["training"]["learning_rate"] = sweep_params["learning_rate"]

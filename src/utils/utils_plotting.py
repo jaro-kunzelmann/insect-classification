@@ -192,7 +192,6 @@ def create_cm(
 
 
 def create_dataset_plots(df, name, plot_dir):
-    # TODO: add a plot for train/val/test split, add other plots from flash talk
     # class distribution plot (file count), top_n, with labels
     top_n = 30
     n_classes = df["class_name"].nunique()

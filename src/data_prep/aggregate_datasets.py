@@ -32,9 +32,7 @@ tqdm.pandas()
 # FUNCTIONS
 # =============================================
 def download_species_file(download_files=False) -> pd.DataFrame:
-    """TODO: it would probably be better to query Open Tree of Life using python-opentree or https://github.com/bioforensics/pytaxonkit
-    or use pygbif to query species names.
-    The below code will load Orthoptera and Cicadidae species names from the corresponding taxon works servers to check against.
+    """Load Orthoptera and Cicadidae species names from the corresponding TaxonWorks servers to check against.
     Either load a cached local species file or download it (for replicability).
     """
 
