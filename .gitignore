@@ -32,3 +32,6 @@ data/aggregation/species_file/*
 
 # Training output
 results/
+
+# Models: only the trimmed checkpoints (without optimizer state) are tracked
+models/*_full.pth
