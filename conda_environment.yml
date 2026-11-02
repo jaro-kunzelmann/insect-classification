@@ -34,7 +34,6 @@ dependencies:
   - coloredlogs
   - transformers
   - upsetplot
-  - git-lfs
   - more-itertools
   - rapidfuzz
   - psutil

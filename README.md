@@ -29,15 +29,6 @@ micromamba activate insects
 pip install -e .
 ```
 
-### Download the trained models
-
-The trained models in `models/` are stored with [Git LFS](https://git-lfs.com/). `git-lfs` is part of the environment, so once it is activated run:
-
-```bash
-git lfs install
-git lfs pull
-```
-
 ## 2. Prepare the data
 
 All commands are run from the repository root. Every script lists its options with `-h`, e.g. `python src/data_prep/resample_audio.py -h`. See [data/README.md](data/README.md) for details on the datasets and the files each step produces.
@@ -153,7 +144,7 @@ Logging to [Weights & Biases](https://wandb.ai/site) is off by default. To enabl
 
 Pass a model checkpoint with `--eval_model_path` to evaluate it without training. With `--evaluate_test_only` only the test set is evaluated; without it, the training, validation and test sets are evaluated.
 
-Two trained models are provided in `models/`:
+Two trained models are provided in `models/`. The optimizer state was removed from the checkpoints to reduce their size, so they can be evaluated or used as starting weights (`--pretrain custom`), but training cannot be resumed from them.
 
 | Model | Checkpoint | Config | Transform config |
 |---|---|---|---|
@@ -193,7 +184,7 @@ configs/
     transforms/          augmentation & spectrogram configs
 data/                    datasets (downloaded and generated, see data/README.md)
 metadata/                file lists, species table, run configurations (see metadata/README.md)
-models/                  trained models (Git LFS)
+models/                  trained models
 scripts/                 download scripts
 src/
     data_prep/           data preparation scripts
