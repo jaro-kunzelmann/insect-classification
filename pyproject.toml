@@ -3,7 +3,7 @@ requires = ["setuptools", "wheel"]
 
 [project]
 name = "insect_sounds"
-version = "0.1.0"
+version = "1.0.0"
 description = "classification of insect sounds"
 license = {text = "MIT"}
 authors = [
