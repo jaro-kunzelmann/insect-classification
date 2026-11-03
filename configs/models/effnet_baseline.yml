@@ -27,7 +27,7 @@ training:
   weighted_loss_method: none  # none, inverse_frequency, inverse_sqrt_frequency, effective_num_samples, InsectEffNet
   effective_num_beta: none 
 
-  # Regularization
+  # Regularization (can be overridden with --gradient_clip and --mixup_alpha)
   gradient_clip_norm: none       # Set to null or omit for no clipping
   mixup_alpha: none              # Data augmentation via mixup
 

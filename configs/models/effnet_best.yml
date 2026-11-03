@@ -23,8 +23,8 @@ training:
   label_smoothing: 0.1
 
   # Class imbalance handling (choose ONE approach)
-  weighted_sampler_method: inverse_sqrt_frequency  # none, inverse_frequency, inverse_sqrt_frequency
-  weighted_loss_method: none  # none, inverse_frequency, inverse_sqrt_frequency, effective_num_samples, InsectEffNet
+  weighted_sampler_method: none       # none, inverse_frequency, inverse_sqrt_frequency
+  weighted_loss_method: inverse_sqrt_frequency  # none, inverse_frequency, inverse_sqrt_frequency, effective_num_samples, InsectEffNet
   effective_num_beta: none 
 
   # Regularization (can be overridden with --gradient_clip and --mixup_alpha)
