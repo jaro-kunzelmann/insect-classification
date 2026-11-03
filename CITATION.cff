@@ -14,6 +14,7 @@ authors:
 repository-code: "https://github.com/jaro-kunzelmann/insect-classification"
 license: MIT
 version: 1.0.0
+doi: 10.5281/zenodo.23918574
 
 # TODO: once the paper is published, uncomment and fill in the block below.
 # GitHub's "Cite this repository" button will then show the paper instead of

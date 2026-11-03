@@ -1,5 +1,7 @@
 # Acoustic Classification of Insects
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23918574.svg)](https://doi.org/10.5281/zenodo.23918574)
+
 Code to reproduce the data preparation, training and evaluation of the insect sound classifiers (Orthoptera and Cicadidae) trained on [InsectSet459](https://zenodo.org/records/15675220).
 
 ## Requirements
