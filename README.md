@@ -29,6 +29,16 @@ micromamba activate insects
 pip install -e .
 ```
 
+#### Pinned environment (Linux x86-64)
+
+`conda_environment_pinned.yml` contains the exact versions and builds of all packages (conda and pip) of the tested environment. Use it on Linux x86-64 to get the same versions we used, or if `conda_environment.yml` fails to solve or takes long to solve. It does not work on other platforms (e.g. macOS or ARM), use `conda_environment.yml` there.
+
+```bash
+micromamba env create -f conda_environment_pinned.yml --channel-priority flexible
+micromamba activate insects-pinned
+pip install -e .
+```
+
 ## 2. Prepare the data
 
 All commands are run from the repository root. Every script lists its options with `-h`, e.g. `python src/data_prep/resample_audio.py -h`. See [data/README.md](data/README.md) for details on the datasets and the files each step produces.
@@ -81,7 +91,7 @@ Training is run with `src/run_experiment.py`, configured by three files:
 | `--trsf_config` | `configs/transforms/` | audio augmentations and spectrogram parameters, per split |
 | `--dataset-config-path` | `configs/dataset_filtering/` | filters applied to the dataset |
 
-Command line options override the values in the config files. List all options with `python src/run_experiment.py -h`.
+The configs of the two published models contain all their settings. Command line options override the values in the config files. List all options with `python src/run_experiment.py -h`.
 
 ### Quick test
 
@@ -90,9 +100,8 @@ Train for one epoch on a random 10% of the data to check that everything is set 
 ```bash
 python -u src/run_experiment.py \
     --config configs/models/effnet_baseline.yml \
-    --trsf_config configs/transforms/mel64_specaug0.yml \
+    --trsf_config configs/transforms/transforms_baseline.yml \
     --dataset-config-path configs/dataset_filtering/initial_training.yml \
-    --weighted_loss inverse_sqrt_frequency --gradient_clip none --mixup_alpha 0.25 \
     --model_path models/test_run.pth \
     -wo 8 --save_file_probs --deterministic_warn_only -srt 0.1 -ep 1
 ```
@@ -106,7 +115,6 @@ python -u src/run_experiment.py \
     --config configs/models/effnet_best.yml \
     --trsf_config configs/transforms/mel64_specaug0.yml \
     --dataset-config-path configs/dataset_filtering/initial_training.yml \
-    --weighted_loss inverse_sqrt_frequency --gradient_clip none --mixup_alpha 0.25 \
     -wo 8 --save_file_probs --deterministic_warn_only
 ```
 

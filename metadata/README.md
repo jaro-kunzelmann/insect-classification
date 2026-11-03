@@ -84,8 +84,8 @@ Notes:
   proportion of time steps masked. The mask sizes scale with the input size.
 - `training.mixup_alpha`, `training.gradient_clip_norm` and
   `training.weighted_loss_method` can also be set on the command line
-  (`--mixup_alpha`, `--gradient_clip`, `--weighted_loss`), as in the code
-  repository's README.
+  (`--mixup_alpha`, `--gradient_clip`, `--weighted_loss`). The published
+  best-model configuration (`configs/models/effnet_best.yml`) contains them.
 - All other settings, including the seed (42), the number of epochs (20)
   and the weight decay (10⁻⁴), are the same for every run.
 
@@ -110,7 +110,7 @@ If you use these files, please cite the paper and the dataset:
 
 - Peter, T. J., Kunzelmann, J. *Optimizing Spectrogram Front-Ends and
   Training Strategies for Deep Learning-Based Acoustic Insect
-  Classification.* [CITATION]
+  Classification.* Submitted.
 - Faiß, M., Stowell, D. (2025). *InsectSet459: A Large Dataset for
   Automatic Acoustic Identification of Insects (Orthoptera and Cicadidae)*,
   version 1.0. Zenodo. https://doi.org/10.5281/zenodo.15675220
