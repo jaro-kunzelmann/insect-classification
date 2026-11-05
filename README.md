@@ -105,7 +105,7 @@ python -u src/run_experiment.py \
     --trsf_config configs/transforms/transforms_baseline.yml \
     --dataset-config-path configs/dataset_filtering/initial_training.yml \
     --model_path models/test_run.pth \
-    -wo 8 --save_file_probs --deterministic_warn_only -srt 0.1 -ep 1
+    -wo 8 --save_file_probs -srt 0.1 -ep 1
 ```
 
 ### Reproduce the models
@@ -117,7 +117,7 @@ python -u src/run_experiment.py \
     --config configs/models/effnet_best.yml \
     --trsf_config configs/transforms/mel64_specaug0.yml \
     --dataset-config-path configs/dataset_filtering/initial_training.yml \
-    -wo 8 --save_file_probs --deterministic_warn_only
+    -wo 8 --save_file_probs
 ```
 
 Baseline model (EfficientNetV2-S, 128 mel bins, no mixup, no class weighting):
@@ -127,7 +127,7 @@ python -u src/run_experiment.py \
     --config configs/models/effnet_baseline.yml \
     --trsf_config configs/transforms/transforms_baseline.yml \
     --dataset-config-path configs/dataset_filtering/initial_training.yml \
-    -wo 8 --deterministic_warn_only
+    -wo 8
 ```
 
 The model is saved at the path given by `--model_path` or, if not given, by `training.path_to_save_model` in the config. If that file exists already, a suffix is added instead of overwriting it (`--overwrite_model` overwrites it), so retraining does not replace the provided models in `models/`.
@@ -144,7 +144,7 @@ Each run writes to `results/<model name>/` (a numeric suffix is added if the fol
 
 ### Reproducibility
 
-The random seed is set in the config (`global.seed`) or with `--seed`, and deterministic algorithms are enabled. Some operations have no deterministic CUDA implementation (`--deterministic_warn_only`), so results can vary slightly between runs with the same seed.
+The random seed is set in the config (`global.seed`) or with `--seed`, and deterministic algorithms are enabled.
 
 ### Logging to Weights & Biases
 
@@ -169,7 +169,7 @@ python -u src/run_experiment.py \
     --trsf_config configs/transforms/mel64_specaug0.yml \
     --dataset-config-path configs/dataset_filtering/initial_training.yml \
     --eval_model_path models/best_model.pth \
-    --evaluate_test_only -wo 8 --deterministic_warn_only
+    --evaluate_test_only -wo 8
 ```
 
 Baseline model:
@@ -180,7 +180,7 @@ python -u src/run_experiment.py \
     --trsf_config configs/transforms/transforms_baseline.yml \
     --dataset-config-path configs/dataset_filtering/initial_training.yml \
     --eval_model_path models/baseline_model.pth \
-    --evaluate_test_only -wo 8 --deterministic_warn_only
+    --evaluate_test_only -wo 8
 ```
 
 Always use the transform config the model was trained with. The class labels are taken from the checkpoint. The results are written to `results/<model name>_<dataset config name>/`.
